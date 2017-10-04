@@ -9,10 +9,35 @@ from thebattersbox import app
 app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://admin:Group2017@localhost/thebattersbox'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 db = SQLAlchemy(app)
+
+class Salary(db.Model):
+    __tablename__='salaries'
+    id = db.Column(db.Integer,primary_key = True,autoincrement=True)
+    salary_amount = db.Column(db.BigInteger())
+    #relationships
+    db.relationship('Coaches',backref='salaries')
+    db.relationship('Player',backref='salaries')
+    #function definitions
+    def __repr__(self):
+        return '<Salary %r>' % self.salary_amount
+    def __init__(self,salary_amount):
+        self.salary_amount = salary_amount
+
+class Division(db.Model):
+    __tablename__ = 'divisions'
+    id = db.Column(db.Integer, primary_key = True, autoincrement=True)
+    name = db.Column(db.String(80), unique=True)
+    #relationships
+    db.relationship('Team', backref = 'division')
+    #function definitions
+    def __repr__(self):
+        return '<Division %r>' % self.name
+    def __init__(self,name):
+        self.name = name
+
 class Team(db.Model):
     __tablename__ = 'teams'
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
-    team_id = db.relationship('player', backref = 'Team')
     name = db.Column(db.String(80), unique=True)
     division_id = db.Column(db.Integer, db.ForeignKey('divisions.id'),nullable=False)
     location = db.Column(db.String(80), unique=True)
@@ -26,17 +51,17 @@ class Team(db.Model):
         self.name = name
         self.location = location
 
-class Division(db.Model):
-    __tablename__ = 'divisions'
-    id = db.Column(db.Integer, primary_key = True, autoincrement=True)
-    name = db.Column(db.String(80), unique=True)
+class Position(db.Model):
+    __tablename__= 'positions'
+    id = db.Column(db.Integer,primary_key=True, autoincrement = True)
+    name = db.Column(db.String(2), unique=True)
     #relationships
-    division_id = db.relationship('Team', backref = 'division')
+    db.relationship('Player',backref='position')
     #function definitions
-    def __repr__(self):
-        return '<Division %r>' % self.name
     def __init__(self,name):
         self.name = name
+    def __repr__(self):
+        return '<Position %r>' % self.name
 
 class Player(db.Model):
     __tablename__ = 'players'
@@ -46,11 +71,12 @@ class Player(db.Model):
     player_number = db.Column(db.Integer)
     position_id = db.Column(db.Integer, db.ForeignKey('positions.id'), nullable=False)
     team_id = db.Column(db.Integer, db.ForeignKey('teams.id'),nullable = False)
+    salaries_id = db.Column(db.Integer,db.ForeignKey('salaries.id'),nullable=False)
     #relationships
-    player_stats = db.relationship('PlayerStats', backref='player')
-    pitching_stats = db.relationship('Pitching',backref='player')
-    coaches = db.relationship('Coaches',backref='player')
-    fielding_stats = db.relationship('Fielding',backref='player')
+    db.relationship('PlayerStats', backref='player')
+    db.relationship('Pitching',backref='player')
+    db.relationship('Coaches',backref='player')
+    db.relationship('Fielding',backref='player')
     #function definitions
     def __repr__(self):
         return '<Player %r>' % self.name
@@ -59,17 +85,6 @@ class Player(db.Model):
         self.home_town = home_town
         self.player_number = player_number
     
-class Position(db.Model):
-    __tablename__= 'positions'
-    id = db.Column(db.Integer,primary_key=True, autoincrement = True)
-    name = db.Column(db.String(2), unique=True)
-    #relationships
-    position_id = db.relationship('Player',backref='position')
-    #function definitions
-    def __init__(self,name):
-        self.name = name
-    def __repr__(self):
-        return '<Position %r>' % self.name
 
 class Batting(db.Model):
     __tablename__= 'batting'
@@ -123,18 +138,6 @@ class Fielding(db.Model):
         self.put_outs = put_outs
     def __repr__(self):
         return '<Fielding %r>' % self.id
-    
-class Coaches(db.Model):
-    __tablename__='coaches'
-    id = db.Column(db.Integer,primary_key=True,autoincrement = True)
-    team_id = db.Column(db.Integer,db.ForeignKey('teams.id'),nullable = False)
-    name = db.Column(db.String(80), nullable=False)
-    coach_type_id = db.Column(db.Integer,db.ForeignKey('coach_type.id'),nullable=False)
-    #function definitions
-    def __repr__(self):
-        return '<Coaches %r>' % self.name
-    def __init__(self,name):
-        self.name = name
 
 class CoachType(db.Model):
     __tablename__='coach_type'
@@ -147,3 +150,18 @@ class CoachType(db.Model):
         return '<CoachType %r>' % self.type
     def __init__(self,type):
         self.type = type
+
+class Coaches(db.Model):
+    __tablename__='coaches'
+    id = db.Column(db.Integer,primary_key=True,autoincrement = True)
+    team_id = db.Column(db.Integer,db.ForeignKey('teams.id'),nullable = False)
+    name = db.Column(db.String(80), nullable=False)
+    coach_type_id = db.Column(db.Integer,db.ForeignKey('coach_type.id'),nullable=False)
+    salaries_id = db.Column(db.Integer,db.ForeignKey('salaries.id'),nullable=False)
+    #function definitions
+    def __repr__(self):
+        return '<Coaches %r>' % self.name
+    def __init__(self,name):
+        self.name = name
+
+
