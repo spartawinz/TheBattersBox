@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PLayer Stats</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div.playerDataDiv{
+                position: relative;
+                height: 400px;
+                width: 850px;
+                border: solid 1px lightgray;	
+            }
+            img.playerTeamImg{
+                left: 10px;
+                top: 10px;
+                height: 150px;
+                width: 150px;
+            }
+            div.playerNameDiv{
+                position: absolute;
+                height: 200px;
+                width: 625px;
+                top: 10px;
+                right: 0px;
+                text-align: center;
+            }
+            p.playerName{
+                margin: 20px 100px 20px 10px;
+                font-size: 70px;
+                font-weight: bold;
+            }
+            p.playerCompareLabel{
+                display:inline-block;
+                margin: 5px 5px 5px 5px;
+                width: 65px;
+                font-size: 17px;
+            }
+            input.playerCompareCheckbox{
+                display:inline-block;
+                right: 300px;
+            }
+            div.playerStatsDiv{
+                margin: 20px 20px 20px 20px;
+            }
+            p.playerBattingLabel{
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+            p.playerFieldingLabel{
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+            ul.playerStatsList{
+                display:inline;
+                border: solid 1px lightgray;	
+                padding: 5px;
+                margin-left: 15px;
+            }
+            li{
+                display: inline;
+            }
+            li.playerStatsListsHeadings{
+                font-weight: bold;
+                margin-right: 5px;
+            }
+            li.playerStatsListsStats{
+                margin-right: 10px;
+            }
+            p.playerPitchingLabel{
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 8px;                
+            }
+            
+            p.tableNames{
+                font-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="playerDataDiv" id="playerDataDiv">
+            <img alt="Player Team Image" class='playerTeamImg' id='playerTeamImg' src='kansas-city-royals13.jpg'> 
+            <div class="playerNameDiv" id="playerNameDiv">
+                <p class='playerName' id='playerName'>Danny Duffy</p>
+                <p class='playerCompareLabel' id='playerCompareLabel'>Compare</p>
+                <input class="playerCompareCheckbox" id="playerCompareCheckbox" type="checkbox">
+            </div>
+            <div class="playerStatsDiv" id="playerTabelsDiv">
+                <p class="playerBattingLabel" id="playerBattingLabel">Batting</p>
+                <ul class="playerStatsList" id="playerBattingStats">
+                    <li class="playerStatsListsHeadings" id="playerHitsLabel">Hits: </li>
+                    <li class="playerStatsListsStats" id="playerHits">>9000</li>
+                    <li class="playerStatsListsHeadings" id="playeratBatLabel">At Bat: </li>
+                    <li class="playerStatsListsStats" id="playeratBat"> 800</li>
+                    <li class="playerStatsListsHeadings" id="playerRunsLabel">Runs: </li>
+                    <li class="playerStatsListsStats" id="playerRuns">3333</li>
+                    <li class="playerStatsListsHeadings" id="playerHomeRunsLabel">Home Runs: </li>
+                    <li class="playerStatsListsStats" id="playerHomeRuns">3433</li>
+                    <li class="playerStatsListsHeadings" id="playerWalksLabel">Walks: </li>
+                    <li class="playerStatsListsStats" id="playerWalks">3333</li>
+                </ul> 
+                <p class="playerFieldingLabel" id="playerFieldingLabel">Fielding</p>
+                <ul class="playerStatsList" id="playerFieldingStats">
+                    <li class="playerStatsListsHeadings" id="playerPutOutsLabel">Put Outs: </li>
+                    <li class="playerStatsListsStats" id="playerPutOuts">4343 </li>
+                    <li class="playerStatsListsHeadings" id="playerErrorLabel">Error: </li>
+                    <li class="playerStatsListsStats" id="playerError">3433 </li>
+                </ul>
+                <p class="playerPitchingLabel" id="playerPitchingLabel">Pitching</p>
+                <ul class="playerStatsList" id="playerPitchingStats">
+                    <li class="playerStatsListsHeadings" id="playerWinsLabel">Wins: </li>
+                    <li class="playerStatsListsStats" id="playerWins">3333</li>
+                    <li class="playerStatsListsHeadings" id="playerLosesLabel">Loses: </li>
+                    <li class="playerStatsListsStats" id="playerLoses">3333</li>
+                    <li class="playerStatsListsHeadings" id="playerERALabel">ERA: </li>
+                    <li class="playerStatsListsStats" id="playerERA">3333</li>
+                    <li class="playerStatsListsHeadings" id="playerGamesPitchedLabel">Games Pitched: </li>
+                    <li class="playerStatsListsStats" id="playerGamesPitched">3333</li>
+                    <li class="playerStatsListsHeadings" id="playerEarnedRunsLabel">Earned Runs: </li>
+                    <li class="playerStatsListsStats" id="playerEarnedRuns">3333</li>
+                    <li class="playerStatsListsHeadings" id="playerInningsPitchedLabel">Innings Pitched: </li>
+                    <li class="playerStatsListsStats" id="playerInningsPitched">3333</li>
+                </ul>
+            </div>
+        </div>
+		
+
+        
+    </body>
+</html>

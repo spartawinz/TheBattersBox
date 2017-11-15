@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PLayer Stats</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+div.teamDataDiv{
+                position: relative;
+                height: 80%;
+                width: 850px;
+                border: solid 1px lightgray; 
+            }
+            img.teamImg{
+                left: 10px;
+                top: 10px;
+                height: 150px;
+                width: 150px;
+            }
+            div.teamNameDiv{
+                position: absolute;
+                height: 200px;
+                width: 625px;
+                top: 10px;
+                right: 0px;
+                text-align: center;
+            }
+            p.teamName{
+                margin: 20px 100px 20px 10px;
+                font-size: 70px;
+                font-weight: bold;
+            }  
+            div.teamStatsDiv{
+                margin: 20px 20px 20px 20px;
+            }            
+            
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 15px;
+            }
+            table{
+                margin: 10px;
+            }
+            th{
+                border: 3px solid black;
+            }
+            table.playerTable{
+            }
+            th.playerTableth{
+            }
+            table.pitcherTable{
+            }
+            th.pitchersTableth{
+            }
+            table.coachesTable{
+            }
+            th.coachesTableth{
+            }
+            p.tableNames{
+                font-size: 18px;
+            }
+			</style>
+	</head>
+	<body>
+        <div class="teamDataDiv" id="teamDataDiv">
+            <img alt="Team Logo" class="teamImg" id="teamImg" src='kansas-city-royals13.jpg'>
+            <div class="teamNameDiv" id="teamNameDiv">
+                <p class='teamName' id='teamName'>Royals</p>
+            </div>   
+            <div class="teamStatsDiv" id="teamStatsDiv">
+                <p class="tableNames"> Position Players</p>
+                <table class="Playerstable" id="teamPlayerstable">
+                    <tr>
+                        <th class="playerTableth">Name</th>
+                        <th class="playerTableth">Position</th>
+                        <th class="playerTableht">Avg</th>
+                        <th class="playerTableth">At Bat</th>
+                        <th class="playerTableth">Hits</th>    
+                        <th class="playerTableth">Runs</th>
+                        <th class="playerTableth">HR</th>
+                        <th class="playerTableth">Walks</th>
+                        <th class="playerTableth">PO</th>
+                        <th class="playerTableth">Error</th>
+                    </tr>
+                    <tr>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                    </tr>
+                </table>   
+                <p class="tableNames"> Pitchers</p>
+                <table class="pitchersTable" id="teamPitchersTable">
+                    <tr>
+                        <th class="pitchersTableth">Name</th>
+                        <th class="pitchersTableth">Position</th>
+                        <th class="pitchersTableth">Era</th>
+                        <th class="pitchersTableth">Wins</th>
+                        <th class="pitchersTableth">Losses</th>
+                        <th class="pitchersTableth">Innings</th>
+                        <th class="pitchersTableth">Games</th>
+                        <th class="pitchersTableth">Earned Runs</th>
+                        <th class="pitchersTableth">Put Outs</th>
+                        <th class="pitchersTableth">Errors</th>
+                    </tr>
+                    <tr>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                        <td>info</td>
+                    </tr>
+                </table>
+                <p class="tableNames"> Coaches</p>
+                <table class="coachesTable" id="coachesTable">
+                    <tr>
+                        <th class="couchesTableth">Name</th>
+                        <th class="couchesTableth">Coach Type</th>
+                    </tr>
+                    <tr>
+                        <td>info</td>
+                        <td>info</td>
+                    </tr>
+                </table>
+            </div>
+        </div>  
+    </body>
+</html>
