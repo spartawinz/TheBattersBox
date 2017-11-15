@@ -40,7 +40,7 @@ class Team(db.Model):
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     name = db.Column(db.String(80), unique=True)
     division_id = db.Column(db.Integer, db.ForeignKey('divisions.id'),nullable=False)
-    location = db.Column(db.String(80), unique=True)
+    location = db.Column(db.String(80))
     #relationships
     db.relationship('Coaches',backref='teams')
     db.relationship('Player',backref='teams')
