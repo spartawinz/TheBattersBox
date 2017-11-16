@@ -71,7 +71,7 @@ class Player(db.Model):
     player_number = db.Column(db.Integer)
     position_id = db.Column(db.Integer, db.ForeignKey('positions.id'), nullable=False)
     team_id = db.Column(db.Integer, db.ForeignKey('teams.id'),nullable = False)
-    salaries_id = db.Column(db.Integer,db.ForeignKey('salaries.id'),nullable=False)
+    salaries_id = db.Column(db.Integer,db.ForeignKey('salaries.id'))
     #relationships
     db.relationship('PlayerStats', backref='player')
     db.relationship('Pitching',backref='player')
