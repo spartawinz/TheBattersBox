@@ -1,0 +1,155 @@
+<html>
+
+<head>
+<title>Database Homepage</title>
+<script src="../jquery.min.js"></script>
+<script>
+
+$(function(){
+$("#header").load("header.html");
+$("#footer").load("footer.html");
+});
+</script>
+<style type="text/css">
+.auto-style1 {
+margin-left: 276px;
+}
+.auto-style4 {
+margin-top: 11px;
+}
+.auto-style5 {
+font-weight: bold;
+margin-left: 40px;
+}
+</style>
+</head>
+
+<body bgcolor="FFFFFF">
+
+<h1><span
+class="auto-style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img height="240" src="jadepic.jpg" width="361"></span></h1>
+<h1 class="auto-style1">Draft Players for 2017 </h1>
+<body>
+
+<p>Search :</p>
+
+<form>
+  <input type="text" name="search" placeholder="Search.."> Search Players
+Name
+</form>
+<li>
+
+</li>
+<div class="container">
+<div class="layout layout-default">
+<section class="column primary span-9 left section-teams">
+<header>
+<h2>Teams</h2>
+</header>
+<div id="content" class="page page-index">
+<section class="league-container" style = "float: left">
+<header>
+<h4>American League</h4>
+</header>
+<ul class="teams-container">
+<li>
+<img class="team-logo" src="logo_bal_79x76.jpg" alt=""/>
+<h3>Baltimore Orioles</h3>
+<p>
+<span class="venue-name">Oriole Park at Camden Yards</span><br/>
+<span class="overBlue">
+333 West Camden Street<br/>
+Baltimore, MD <a href="javascript: void(0)"
+class="overBlue">21201</a></span><br/>
+(410) 685-9800<br/>
+</p>
+<a href="http://m.orioles.mlb.com">orioles.com</a>
+</li>
+<li>
+<img class="team-logo" src="logo_bos_79x76.jpg" alt=""/>
+<h3>Boston Red Sox</h3>
+<p>
+<span class="venue-name">Fenway Park</span><br/>
+<span class="overBlue">
+4 Yawkey Way<br/>
+Boston, MA <a href="javascript: void(0)"
+class="overBlue">2215</a></span><br/>
+(617) 267-9440<br/>
+</p>
+<a href="http://m.redsox.mlb.com">redsox.com</a>
+</li>
+<li>
+
+<img class="team-logo" src="logo_nyy_79x76.jpg" alt=""/>
+<h3>New York Yankees</h3>
+<p>
+<span class="venue-name">Yankee Stadium</span><br/>
+<span class="overBlue">
+One East 161st Street<br/>
+Bronx, NY <a href="javascript: void(0)"
+class="overBlue">10451</a></span><br/>
+(718) 293-4300<br/>
+</p>
+<a href="http://m.yankees.mlb.com">yankees.com</a>
+</li>
+<li>
+<img class="team-logo" src="logo_tb_79x76.jpg" alt=""/>
+<h3>Tampa Bay Rays</h3>
+<p>
+<span class="venue-name">Tropicana Field</span><br/>
+<span class="overBlue">
+One Tropicana Drive<br/>
+St. Petersburg, FL <a href="javascript: void(0)"
+class="overBlue">33705</a></span><br/>
+(727) 825-3137<br/>
+</p>
+<a href="http://m.rays.mlb.com">raysbaseball.com</a>
+<li>
+<img class="team-logo" src="logo_tor_79x76.jpg" alt=""/>
+<h3>Toronto Blue Jays</h3>
+<p>
+<span class="venue-name">Rogers Centre</span><br/>
+<span class="overBlue">
+1 Blue Jays Way, Suite 3200<br/>
+Toronto, Ontario, <a href="javascript: void(0)"
+class="overBlue">M5V1J1</a></span><br/>
+Canada<br/>
+(416) 341-1000<br/>
+</p>
+<a href="http://m.bluejays.mlb.com">bluejays.com</a><h3>AL Central</h3>
+<li>
+<img class="team-logo" src="logo_cws_79x76.jpg" alt=""/>
+<h3>&nbsp;Chicago White Sox</h3>
+<p>
+<span class="venue-name">Guaranteed Rate Field</span><br/>
+<span class="overBlue">
+333 West 35th Street<br/>
+Chicago, IL <a href="javascript: void(0)"
+class="overBlue">60616</a></span><br/>
+(312) 674-1000<br/>
+</p>
+<a href="http://m.whitesox.mlb.com">whitesox.com</a>
+</li>
+<li>
+<img class="team-logo" src="logo_cle_79x76.jpg" alt=""/>
+<h3>Cleveland Indians</h3>
+<p>
+<span class="venue-name">Progressive Field</span><br/>
+<span class="overBlue">
+2401 Ontario Street<br/>
+Cleveland, OH <a href="javascript: void(0)"
+class="overBlue">44115</a></span><br/>
+(216) 420-4200<br/>
+</p>
+<a href="http://m.indians.mlb.com">indians.com</a>
+</li>
+<li>
+<img class="team-logo" src="logo_det_79x76.jpg" alt=""/>
+<h3>Detroit Tigers</h3>
+<p>
+<span class="venue-name">Comerica Park</span><br/>
+<span class="overBlue">
+2100 Woodward Avenue<br/>
+Detroit, MI <a href="javascript: void(0)"
+class="overBl
