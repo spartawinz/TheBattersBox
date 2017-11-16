@@ -157,7 +157,7 @@ class Coaches(db.Model):
     team_id = db.Column(db.Integer,db.ForeignKey('teams.id'),nullable = False)
     name = db.Column(db.String(80), nullable=False)
     coach_type_id = db.Column(db.Integer,db.ForeignKey('coach_type.id'),nullable=False)
-    salaries_id = db.Column(db.Integer,db.ForeignKey('salaries.id'),nullable=False)
+    salaries_id = db.Column(db.Integer,db.ForeignKey('salaries.id'))
     #function definitions
     def __repr__(self):
         return '<Coaches %r>' % self.name
