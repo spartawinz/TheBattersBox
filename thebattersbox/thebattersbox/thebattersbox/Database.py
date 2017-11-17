@@ -95,13 +95,17 @@ class Batting(db.Model):
     runs = db.Column(db.Integer)
     home_runs = db.Column(db.Integer)
     walks = db.Column(db.Integer)
+    runs_batted_in = db.Column(db.Integer)
+    batting_average = db.Column(db.Integer)
     #function definitions
-    def __init__(self,hits,at_bat,runs,home_runs,walks):
+    def __init__(self,hits,at_bat,runs,home_runs,walks,runs_batted_in,batting_average):
         self.hits = hits
         self.at_bat = at_bat
         self.runs = runs
         self.home_runs = home_runs
         self.walks = walks
+        self.runs_batted_in
+        self.batting_average
     def __repr__(self):
         return '<Batting %r' % self.id
 
@@ -115,14 +119,16 @@ class Pitching(db.Model):
     games_pitched = db.Column(db.Integer)
     earned_runs = db.Column(db.Integer)
     innings_pitched = db.Column(db.Integer)
+    strike_outs = db.Column(db.Integer)
     #function definitions
-    def __init__(self,wins,losses,era,games_pitched,earned_runs,innings_pitched):
+    def __init__(self,wins,losses,era,games_pitched,earned_runs,innings_pitched,strike_outs):
         self.wins = wins
         self.losses = losses
         self.era = era
         self.games_pitched = games_pitched
         self.earned_runs = earned_runs
         self.innings_pitched = innings_pitched
+        self.strike_outs = strike_outs
     def __repr__(self):
         return '<Pitching %r>' % self.id
 

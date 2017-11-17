@@ -814,4 +814,75 @@ VALUES ('Lee Kuntz', 30, 10);
 INSERT INTO coaches (name, team_id, coach_type_id)
 VALUES ('Randy Knorr', 30, 12);
 
+#set this to the filepath for player.csv
+LOAD DATA LOCAL INFILE '/home/travis/Documents/GitHub/TheBattersBox/RawData/player.csv'
+INTO TABLE players
+character set utf8
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 Rows
+(name, team_id, position_id, player_number, home_town, salaries_id);
+#set this to the filepath for batting.csv
+LOAD DATA LOCAL INFILE '/home/travis/Documents/GitHub/TheBattersBox/RawData/Batting.csv'
+INTO TABLE batting
+character set utf8
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 Rows
+(player_id, hits, at_bat, runs, home_runs, walks, runs_batted_in, batting_average);
+#set this to the filepath for pitching.csv
+LOAD DATA LOCAL INFILE '/home/travis/Documents/GitHub/TheBattersBox/RawData/Pitching.csv'
+INTO TABLE pitching_stats
+character set utf8
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 Rows
+(player_id, wins, losses, games_pitched, innings_pitched, earned_runs, era, strike_outs);
 
+SHOW VARIABLES LIKE "secure_file_priv";
+
+SELECT teams.name,divisions.name
+FROM divisions, teams
+Where divisions.id = teams.division_id;
+
+SELECT * FROM thebattersbox.divisions;
+
+SELECT * FROM thebattersbox.positions;
+
+SELECT * FROM thebattersbox.salaries;
+
+Select *
+From coach_type;
+
+Select *
+From players;
+
+select *
+From batting_stats;
+
+select *
+From pitching_stats;
+
+Select *
+From coaches;
+
+Select *
+From teams;
+
+Select teams.name, divisions.name
+From teams, divisions
+Where teams.division_id=divisions.id;
+
+Select coaches.name, coach_type.name, teams.name
+From coaches, coach_type, teams
+Where teams.id=Coaches.team_id AND coach_type.id=coaches.coach_type_id
+Order BY teams.name;
+
+Select teams.name, players.name, home_runs, batting_average
+From players, batting, teams
+Where players.team_id=teams.id AND players.id=batting.player_id AND home_runs>20
+Order BY home_runs;
+
+Select teams.name, players.name, innings_pitched, era
+from players, pitching_stats, teams
+where players.team_id=teams.id AND players.id=pitching_stats.player_id
