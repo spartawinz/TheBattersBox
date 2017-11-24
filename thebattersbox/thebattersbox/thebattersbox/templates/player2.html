@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PLayer Stats</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div.playerDataDiv{
+                position: relative;
+                height: 400px;
+                width: 850px;
+                border: solid 1px lightgray;	
+            }
+            img.playerTeamImg{
+                left: 10px;
+                top: 10px;
+                height: 76px;
+                width: 76px;
+            }
+            div.playerNameDiv{
+                position: absolute;
+                height: 200px;
+                width: 625px;
+                top: 10px;
+				right: 30px;
+				margin-left: 20px;
+            }
+            p.playerName{
+                margin: 20px 100px 20px 10px;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            p.playerCompareLabel{
+                display:inline-block;
+				position: absolute;
+				right: 150px;
+				top: 20px;
+                margin: 5px 5px 5px 5px;
+                width: 65px;
+                font-size: 17px;
+            }
+            input.playerCompareCheckbox{
+                display:inline-block;
+				position: absolute;
+                right: 100px;
+				top: 20px;
+            }
+            div.playerStatsDiv{
+                margin: 20px 20px 20px 20px;
+            }
+            p.playerBattingLabel{
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+            p.playerFieldingLabel{
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+            ul.playerStatsList{
+                display:inline;
+                border: solid 1px lightgray;	
+                padding: 5px;
+                margin-left: 15px;
+            }
+            li{
+                display: inline;
+            }
+            li.playerStatsListsHeadings{
+                font-weight: bold;
+                margin-right: 5px;
+            }
+            li.playerStatsListsStats{
+                margin-right: 10px;
+            }
+            p.playerPitchingLabel{
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 8px;                
+            }
+            
+            p.tableNames{
+                font-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="playerDataDiv" id="playerDataDiv">
+            <img alt="Player Team Image" class='playerTeamImg' id='playerTeamImg' src='C:\Users\Walter\Downloads\HomePage\logo_kc_79x76.jpg'> 
+            <div class="playerNameDiv" id="playerNameDiv">
+                <p class='playerName' id='Player_Name'>{{ Player_Name }}</p>
+                <p class='playerCompareLabel' id='playerCompareLabel'>Compare</p>
+                <input class="playerCompareCheckbox" id="playerCompareCheckbox" type="checkbox">
+            </div>
+            <div class="playerStatsDiv" id="playerTabelsDiv">
+                <p class="playerBattingLabel" id="playerBattingLabel">Batting</p>
+                <ul class="playerStatsList" id="playerBattingStats">
+                    <li class="playerStatsListsHeadings" id="playerHitsLabel">Hits: </li>
+                    <li class="playerStatsListsStats" id="playerHits">>{{ Player_Hits }}</li>
+                    <li class="playerStatsListsHeadings" id="playeratBatLabel">At Bat: </li>
+                    <li class="playerStatsListsStats" id="playeratBat">{{ Player_At_Bats }}</li>
+                    <li class="playerStatsListsHeadings" id="playerRunsLabel">Runs: </li>
+                    <li class="playerStatsListsStats" id="playerRuns">{{ Player_Runs }}</li>
+                    <li class="playerStatsListsHeadings" id="playerHomeRunsLabel">Home Runs: </li>
+                    <li class="playerStatsListsStats" id="playerHomeRuns">{{ Player_HRs }}</li>
+                    <li class="playerStatsListsHeadings" id="playerWalksLabel">Walks: </li>
+                    <li class="playerStatsListsStats" id="playerWalks">{{ Player_Walks }}</li>
+                </ul> 
+                <p class="playerFieldingLabel" id="playerFieldingLabel">Fielding</p>
+                <ul class="playerStatsList" id="playerFieldingStats">
+                    <li class="playerStatsListsHeadings" id="playerPutOutsLabel">Put Outs: </li>
+                    <li class="playerStatsListsStats" id="playerPutOuts">{{ Player_Put_Outs }}</li>
+                    <li class="playerStatsListsHeadings" id="playerErrorLabel">Error: </li>
+                    <li class="playerStatsListsStats" id="playerError">{{ Player_Errors }}</li>
+                </ul>
+                <p class="playerPitchingLabel" id="playerPitchingLabel">Pitching</p>
+                <ul class="playerStatsList" id="playerPitchingStats">
+                    <li class="playerStatsListsHeadings" id="playerWinsLabel">Wins: </li>
+                    <li class="playerStatsListsStats" id="playerWins">{{ Player_Wins }}</li>
+                    <li class="playerStatsListsHeadings" id="playerLosesLabel">Loses: </li>
+                    <li class="playerStatsListsStats" id="playerLoses">{{ Player_Loses }}</li>
+                    <li class="playerStatsListsHeadings" id="playerERALabel">ERA: </li>
+                    <li class="playerStatsListsStats" id="playerERA">{{ Player_ERA }}</li>
+                    <li class="playerStatsListsHeadings" id="playerGamesPitchedLabel">Games Pitched: </li>
+                    <li class="playerStatsListsStats" id="playerGamesPitched">{{ Player_Games_Pitched }}</li>
+                    <li class="playerStatsListsHeadings" id="playerEarnedRunsLabel">Earned Runs: </li>
+                    <li class="playerStatsListsStats" id="playerEarnedRuns">{{ Player_Earned_Runs }}</li>
+                    <li class="playerStatsListsHeadings" id="playerInningsPitchedLabel">Innings Pitched: </li>
+                    <li class="playerStatsListsStats" id="playerInningsPitched">{{ Player_Innings_Pitched }}</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

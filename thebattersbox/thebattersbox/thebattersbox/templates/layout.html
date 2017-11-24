@@ -1,47 +1,131 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - My Flask Application</title>
+   {% head block %}
+     <title>{{ title }} - My Flask Application</title>
+    {% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <style>
+        {% block style %}
+        body {
+            margin: 0px;
+        }
+
+        div.navBarDiv {
+            position: absolute;
+            left: 10%;
+            width: 80%;
+            height: 50px;
+            background-color: darkgrey;
+            border: solid 1px black;
+        }
+
+        div.mainDiv {
+            position: absolute;
+            left: 10%;
+            top: 50px;
+            width: 80%;
+            height: 80%;
+            border: solid 1px black;
+        }
+
+        input.homeButton {
+            position: absolute;
+            left: 145px;
+            top: 4px;
+            border: none;
+            width: 100px;
+            height: 40px;
+            background-color: white;
+        }
+
+        input.compareButton {
+            position: absolute;
+            left: 400px;
+            border: none;
+            top: 4px;
+            width: 100px;
+            height: 40px;
+            background-color: white;
+        }
+
+        div.compareBoxDiv {
+            position: absolute;
+            left: 520px;
+            border: solid 1px black;
+            top: 4px;
+            width: 800px;
+            height: 40px;
+            background-color: white;
+        }
+
+        p.compareBoxPlayer1Name {
+            position: absolute;
+            left: 35px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        p.compareBoxPlayer2Name {
+            position: absolute;
+            left: 300px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        p.compareBoxPlayer3Name {
+            position: absolute;
+            left: 600px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        input.deselectPlayer1 {
+            position: absolute;
+            margin: 10px;
+        }
+
+        input.deselectPlayer2 {
+            position: absolute;
+            margin: 10px;
+            left: 265px;
+        }
+
+        input.deselectPlayer3 {
+            position: absolute;
+            margin: 10px;
+            left: 565px;
+        }
+         {% endblock %}
+        
+    </style>
+    
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">Application name</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('about') }}">About</a></li>
-                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                </ul>
-            </div>
+    
+
+    <div class="navBarDiv" id="navBarDiv">
+        <input type="button" value="Home" class="homeButton" id="homeButton">
+        <input type="button" value="Compare" class="compareButton" id="compareButton">
+        <div class="compareBoxDiv" id="compareBoxDiv">
+            <input type="button" value="X" class="deselectPlayer1" id="deselectPlayer1">
+            <p class="compareBoxPlayer1Name" id="compareBoxPlayer1Name">Player 1</p>
+            <input type="button" value="X" class="deselectPlayer2" id="deselectPlayer2">
+            <p class="compareBoxPlayer2Name" id="compareBoxPlayer2Name">Player 2</p>
+            <input type="button" value="X" class="deselectPlayer3" id="deselectPlayer3">
+
+            <p class="compareBoxPlayer3Name" id="compareBoxPlayer3Name">Player 3</p>
         </div>
     </div>
-
-    <div class="container body-content">
-        {% block content %}{% endblock %}
-        <hr />
-        <footer>
-            <p>&copy; {{ year }} - My Flask Application</p>
-        </footer>
+    <div id="content">
+    {% block content %}{% endblock %}
     </div>
-
-    <script src="/static/scripts/jquery-1.10.2.js"></script>
-    <script src="/static/scripts/bootstrap.js"></script>
-    <script src="/static/scripts/respond.js"></script>
-    {% block scripts %}{% endblock %}
 
 </body>
 </html>

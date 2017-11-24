@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+
+            <link rel = "stylesheet"
+                type = "text/css"
+                href = "templates/Stylesheet1.css">
+            
+       
+    </head>
+    <body>
+        
+        <div class="navBarDiv" id="navBarDiv"> 
+            <input type="button" value= "Home" class="homeButton" id="homeButton"> 
+            <input type="button" value="Compare" class="compareButton" id="compareButton">
+            <div class="compareBoxDiv" id="compareBoxDiv">
+                <input type="button" value="X" class="deselectPlayer1" id="deselectPlayer1">
+                <p class="compareBoxPlayer1Name" id="compareBoxPlayer1Name">Player 1</p>
+                <input type="button" value="X" class="deselectPlayer2" id="deselectPlayer2">
+                <p class="compareBoxPlayer2Name" id="compareBoxPlayer2Name">Player 2</p>
+                <input type="button" value="X" class="deselectPlayer3" id="deselectPlayer3">
+               
+                <p class="compareBoxPlayer3Name" id="compareBoxPlayer3Name">Player 3</p>
+            </div>
+        </div>
+        <div class="mainDiv" id="mainDiv">
+            {% block content %}  {% endblock %}
+        </div>
+    </body>
+</html>

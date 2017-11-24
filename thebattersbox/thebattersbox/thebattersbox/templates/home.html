@@ -1,0 +1,438 @@
+{% extends layout.html" %}
+{% block head %}
+<title>Database Homepage</title>
+<script src="../jquery.min.js"></script>
+<script>
+
+$(function(){
+$("#header").load("header.html");
+$("#footer").load("footer.html");
+});
+</script>
+
+{% endblock %}
+(% block style %)
+{{ super() }}
+.auto-style1 {
+margin-left: 276px;
+}
+.auto-style4 {
+margin-top: 11px;
+}
+.auto-style5 {
+font-weight: bold;
+margin-left: 40px;
+}
+{% endblock %}
+{% block content %}
+
+    <h1 class="auto-style1">Draft Players for 2017 </h1>
+
+    <div class="container">
+        <div class="layout layout-default">
+            <section class="column primary span-9 left section-teams">
+                <header>
+                    <h2>Teams</h2>
+                </header>
+                <div id="content" class="page page-index">
+                    <section class="league-container" style="float: left">
+                        <header>
+                            <h4>American League</h4>
+                        </header>
+                        <ul class="teams-container">
+                            <li>
+                                <img class="team-logo" src="logo_bal_79x76.jpg" alt="" />
+                                <h3>Baltimore Orioles</h3>
+                                <p>
+                                    <span class="venue-name">Oriole Park at Camden Yards</span><br />
+                                    <span class="overBlue">
+                                        333 West Camden Street<br />
+                                        Baltimore, MD <a href="javascript: void(0)" class="overBlue">21201</a>
+                                    </span><br />
+                                    (410) 685-9800<br />
+                                </p>
+                                <a href="http://m.orioles.mlb.com">orioles.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_bos_79x76.jpg" alt="" />
+                                <h3>Boston Red Sox</h3>
+                                <p>
+                                    <span class="venue-name">Fenway Park</span><br />
+                                    <span class="overBlue">
+                                        4 Yawkey Way<br />
+                                        Boston, MA <a href="javascript: void(0)" class="overBlue">2215</a>
+                                    </span><br />
+                                    (617) 267-9440<br />
+                                </p>
+                                <a href="http://m.redsox.mlb.com">redsox.com</a>
+                            </li>
+                            <li>
+
+                                <img class="team-logo" src="logo_nyy_79x76.jpg" alt="" />
+                                <h3>New York Yankees</h3>
+                                <p>
+                                    <span class="venue-name">Yankee Stadium</span><br />
+                                    <span class="overBlue">
+                                        One East 161st Street<br />
+                                        Bronx, NY <a href="javascript: void(0)" class="overBlue">10451</a>
+                                    </span><br />
+                                    (718) 293-4300<br />
+                                </p>
+                                <a href="http://m.yankees.mlb.com">yankees.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_tb_79x76.jpg" alt="" />
+                                <h3>Tampa Bay Rays</h3>
+                                <p>
+                                    <span class="venue-name">Tropicana Field</span><br />
+                                    <span class="overBlue">
+                                        One Tropicana Drive<br />
+                                        St. Petersburg, FL <a href="javascript: void(0)" class="overBlue">33705</a>
+                                    </span><br />
+                                    (727) 825-3137<br />
+                                </p>
+                                <a href="http://m.rays.mlb.com">raysbaseball.com</a>
+                            <li>
+                                <img class="team-logo" src="logo_tor_79x76.jpg" alt="" />
+                                <h3>Toronto Blue Jays</h3>
+                                <p>
+                                    <span class="venue-name">Rogers Centre</span><br />
+                                    <span class="overBlue">
+                                        1 Blue Jays Way, Suite 3200<br />
+                                        Toronto, Ontario, <a href="javascript: void(0)" class="overBlue">M5V1J1</a>
+                                    </span><br />
+                                    Canada<br />
+                                    (416) 341-1000<br />
+                                </p>
+                                <a href="http://m.bluejays.mlb.com">bluejays.com</a><h3>AL Central</h3>
+                            <li>
+                                <img class="team-logo" src="logo_cws_79x76.jpg" alt="" />
+                                <h3>&nbsp;Chicago White Sox</h3>
+                                <p>
+                                    <span class="venue-name">Guaranteed Rate Field</span><br />
+                                    <span class="overBlue">
+                                        333 West 35th Street<br />
+                                        Chicago, IL <a href="javascript: void(0)" class="overBlue">60616</a>
+                                    </span><br />
+                                    (312) 674-1000<br />
+                                </p>
+                                <a href="http://m.whitesox.mlb.com">whitesox.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_cle_79x76.jpg" alt="" />
+                                <h3>Cleveland Indians</h3>
+                                <p>
+                                    <span class="venue-name">Progressive Field</span><br />
+                                    <span class="overBlue">
+                                        2401 Ontario Street<br />
+                                        Cleveland, OH <a href="javascript: void(0)" class="overBlue">44115</a>
+                                    </span><br />
+                                    (216) 420-4200<br />
+                                </p>
+                                <a href="http://m.indians.mlb.com">indians.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_det_79x76.jpg" alt="" />
+                                <h3>Detroit Tigers</h3>
+                                <p>
+                                    <span class="venue-name">Comerica Park</span><br />
+                                    <span class="overBlue">
+                                        2100 Woodward Avenue<br />
+                                        Detroit, MI <a href="javascript: void(0)" class="overBlue">48201</a>
+                                    </span><br />
+                                    (313) 471-2000<br />
+                                </p>
+                                <a href="http://m.tigers.mlb.com">tigers.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_kc_79x76.jpg" alt="" />
+                                <h3>Kansas City Royals</h3>
+                                <p>
+                                    <span class="venue-name">Kauffman Stadium</span><br />
+                                    <span class="overBlue">
+                                        One Royal Way<br />
+                                        Kansas City, MO <a href="javascript: void(0)" class="overBlue">64129</a>
+                                    </span><br />
+                                    (816) 921-8000<br />
+                                </p>
+                                <a href="http://m.royals.mlb.com">royals.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_min_79x76.jpg" alt="" />
+                                <h3>Minnesota Twins</h3>
+                                <p>
+                                    <span class="venue-name">Target Field</span><br />
+                                    <span class="overBlue">
+                                        1 Twins Way<br />
+                                        Minneapolis, MN <a href="javascript: void(0)" class="overBlue">55403</a>
+                                    </span><br />
+                                    (612) 659-3400<br />
+                                </p>
+                                <a href="http://m.twins.mlb.com">twinsbaseball.com</a>
+                            </li>
+                        </ul>
+                        <p class="auto-style5">AL West</p>
+                        <ul class="teams-container">
+                            <li>
+                                <img class="team-logo" src="logo_hou_79x76.jpg" alt="" />
+                                <h3>Houston Astros</h3>
+                                <p>
+                                    <span class="venue-name">Minute Maid Park</span><br />
+                                    <span class="overBlue">
+                                        501 Crawford Street<br />Houston, TX
+                                        <a href="javascript: void(0)" class="overBlue">77002</a>
+                                    </span><br />(713) 259-8000<br />
+                                </p>
+                                <a href="http://m.astros.mlb.com">astros.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_ana_79x76.jpg" alt="" />
+                                <h3>Los Angeles Angels of Anaheim</h3>
+                                <p>
+                                    <span class="venue-name">Angel Stadium of Anaheim</span><br />
+                                    <span class="overBlue">
+                                        2000 Gene Autry Way<br />Anaheim, CA
+                                        <a href="javascript: void(0)" class="overBlue">92806</a>
+                                    </span><br />(714) 940-2000<br />
+                                </p>
+                                <a href="http://m.angels.mlb.com">angels.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_oak_79x76.jpg" alt="" />
+                                <h3>Oakland Athletics</h3>
+                                <p>
+                                    <span class="venue-name">Oakland Coliseum</span><br />
+                                    <span class="overBlue">
+                                        7000 Coliseum Way<br />Oakland, CA
+                                        <a href="javascript: void(0)" class="overBlue">94621</a>
+                                    </span><br />(510) 638-4900<br />
+                                </p>
+                                <a href="http://m.athletics.mlb.com">athletics.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_sea_79x76.jpg" alt="" />
+                                <h3>Seattle Mariners</h3>
+                                <p>
+                                    <span class="venue-name">Safeco Field</span><br /><span class="overBlue">
+                                        P.O. Box 4100<br />Seattle, WA
+                                        <a href="javascript: void(0)" class="overBlue">98104</a>
+                                    </span><br />(206) 346-4000<br />
+                                </p>
+                                <a href="http://m.mariners.mlb.com">mariners.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_tex_79x76.jpg" alt="" />
+                                <h3>Texas Rangers</h3>
+                                <p>
+                                    <span class="venue-name">Globe Life Park in Arlington</span><br />
+                                    <span class="overBlue">
+                                        1000 Ballpark Way<br />Arlington, TX
+                                        <a href="javascript: void(0)" class="overBlue">76011</a>
+                                    </span><br />(817) 273-5222<br />
+                                </p>
+                                <a href="http://m.rangers.mlb.com">texasrangers.com</a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="league-container" style="float: left">
+                        <header>
+                            <div>
+                                <h4>National League</h4>
+                        </header>
+                        <ul class="teams-container">
+                            <li>
+                                <img class="team-logo" src="logo_atl_79x76.jpg" alt="" />
+                                <h3>Atlanta Braves</h3>
+                                <p>
+                                    <span class="venue-name">SunTrust Park</span><br />
+                                    <span class="overBlue">
+                                        755 Battery Avenue<br />
+                                        Atlanta, GA <a href="javascript: void(0)" class="overBlue">30339</a>
+                                    </span><br />
+                                    USA<br />
+                                </p>
+                                <a href="http://m.braves.mlb.com">braves.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_mia_79x76.jpg" alt="" />
+                                <h3>Miami Marlins</h3>
+                                <p>
+                                    <span class="venue-name">Marlins Park</span><br />
+                                    <span class="overBlue">
+                                        501 Marlins Way<br />
+                                        Miami, FL <a href="javascript: void(0)" class="overBlue">33125</a>
+                                    </span><br />
+                                    USA<br />
+                                </p>
+                                <a href="http://m.marlins.mlb.com">marlins.com</a>
+                            <li>
+                                <img class="team-logo" src="logo_nym_79x76.jpg" alt="" />
+                                <h3>New York Mets</h3>
+                                <p>
+                                    <span class="venue-name">Citi Field</span><br />
+                                    <span class="overBlue">
+                                        Citi Field<br />
+                                        Flushing, NY <a href="javascript: void(0)" class="overBlue">11368</a>
+                                    </span><br />
+                                    (718) 507-6387<br />
+                                </p>
+                                <a href="http://m.mets.mlb.com">mets.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_phi_79x76.jpg" alt="" />
+                                <h3>Philadelphia Phillies</h3>
+                                <p>
+                                    <span class="venue-name">Citizens Bank Park</span><br />
+                                    <span class="overBlue">
+                                        One Citizens Bank Way<br />
+                                        Philadelphia, PA <a href="javascript: void(0)" class="overBlue">19148</a>
+                                    </span><br />
+                                    (215) 463-6000<br />
+                                </p>
+                                <a href="http://m.phillies.mlb.com">phillies.com</a>
+                            <li>
+                                &nbsp;
+                            </li>
+                            <img class="team-logo" src="logo_was_79x76.jpg" alt="" />
+                            <h3>Washington Nationals</h3>
+                            <p>
+                                <span class="venue-name">Nationals Park</span><br />
+                                <span class="overBlue">
+                                    1500 South Capitol Street, SE<br />
+                                    Washington, DC <a href="javascript: void(0)" class="overBlue">20003-1507</a>
+                                </span><br />
+                                (202) 349-0400<br />
+                            <p style="height: 34px">
+                                <a href="https://www.mlb.com/nationals">nationals.com</a>&nbsp;
+                                <h3 class="auto-style4">NL Central</h3>
+                            <li>
+                                <img class="team-logo" src="logo_chc_79x76.jpg" alt="" />
+                                <h3>Chicago Cubs</h3>
+                                <p>
+                                    <span class="venue-name">Wrigley Field</span><br />
+                                    <span class="overBlue">
+                                        1060 West Addison<br />
+                                        Chicago, IL <a href="javascript: void(0)" class="overBlue">60613-4397</a>
+                                    </span><br />
+                                    (773) 404-2827<br />
+                                </p>
+                                <a href="http://m.cubs.mlb.com">cubs.com</a>
+                            </li>
+
+                            <li>
+                                <img class="team-logo" src="logo_cin_79x76.jpg" alt="" />
+                                <h3>Cincinnati Reds</h3>
+                                <p>
+                                    <span class="venue-name">Great American Ball Park</span><br />
+                                    <span class="overBlue">
+                                        100 Main Street<br />
+                                        Cincinnati, OH <a href="javascript: void(0)" class="overBlue">45202-4109</a>
+                                    </span><br />
+                                    (513) 765-7000<br />
+                                </p>
+                                <a href="http://m.reds.mlb.com">reds.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_mil_79x76.jpg" alt="" />
+                                <h3>Milwaukee Brewers</h3>
+                                <p>
+                                    <span class="venue-name">Miller Park</span><br />
+                                    <span class="overBlue">
+                                        One Brewers Way<br />
+                                        Milwaukee, WI <a href="javascript: void(0)" class="overBlue">53214</a>
+                                    </span><br />
+                                    (414) 902-4400<br />
+                                </p>
+                                <a href="http://m.brewers.mlb.com">brewers.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_pit_79x76.jpg" alt="" />
+                                <h3>Pittsburgh Pirates</h3>
+                                <p>
+                                    <span class="venue-name">PNC Park</span><br /><span class="overBlue">
+                                        115 Federal Street<br />Pittsburgh, PA
+                                        <a href="javascript: void(0)" class="overBlue">15212</a>
+                                    </span><br />(412) 323-5000<br />
+                                </p>
+                                <a href="http://m.pirates.mlb.com">pirates.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_atl_79x76.jpg" alt="" />
+                                <h3>St. Louis Cardinals</h3>
+                                <p>
+                                    <span class="venue-name">Busch Stadium</span><br /><span class="overBlue">
+                                        700 Clark Street<br />St. Louis, MO
+                                        <a href="javascript: void(0)" class="overBlue">63102</a>
+                                    </span><br />(314) 345-9600<br />
+                                </p>
+                                <a href="http://m.cardinals.mlb.com">cardinals.com</a>
+                            </li>
+                        </ul>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> NL West</b></p>
+                        <ul class="teams-container">
+                            <li>
+                                <img class="team-logo" src="logo_ari_79x76.jpg" alt="" />
+                                <h3>Arizona Diamondbacks</h3>
+                                <p>
+                                    <span class="venue-name">Chase Field</span><br /><span class="overBlue">
+                                        401 East Jefferson Street<br />Phoenix, AZ
+                                        <a href="javascript: void(0)" class="overBlue">85004</a>
+                                    </span><br />(602) 462-6500<br />
+                                </p>
+                                <a href="http://m.dbacks.mlb.com">dbacks.com</a>
+                            </li>
+
+                            <li>
+                                <img class="team-logo" src="logo_col_79x76.jpg" alt="" />
+                                <h3>Colorado Rockies</h3>
+                                <p>
+                                    <span class="venue-name">Coors Field</span><br />
+                                    <span class="overBlue">
+                                        2001 Blake Street<br />
+                                        Denver, CO <a href="javascript: void(0)" class="overBlue">80205-2000</a>
+                                    </span><br />
+                                    (303) 292-0200<br />
+                                </p>
+                                <a href="http://m.rockies.mlb.com">rockies.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_la_79x76.jpg" alt="" />
+                                <h3>Los Angeles Dodgers</h3>
+                                <p>
+                                    <span class="venue-name">Dodger Stadium</span><br />
+                                    <span class="overBlue">
+                                        1000 Vin Scully Avenue<br />
+                                        Los Angeles, CA <a href="javascript: void(0)" class="overBlue">90012-1199</a>
+                                    </span><br />
+                                    (323) 224-1500<br />
+                                </p>
+                                <a href="http://m.dodgers.mlb.com">dodgers.com</a>
+                            </li>
+                            <li>
+                                <img class="team-logo" src="logo_sd_79x76.jpg" alt="" />
+                                <h3>San Diego Padres</h3>
+                                <p>
+                                    <span class="venue-name">Petco Park</span><br />
+                                    <span class="overBlue">
+                                        100 Park Boulevard<br />
+                                        San Diego, CA <a href="javascript: void(0)" class="overBlue">92101</a>
+                                    </span><br />
+                                    (619) 795-5000<br />
+                                </p>
+                                <a href="http://m.padres.mlb.com">padres.com</a>
+                            </li>
+
+                            <li>
+                                <img class="team-logo" src="logo_sf_79x76.jpg" alt="" />
+                                <h3>San Francisco Giants</h3>
+                                <p>
+                                    <span class="venue-name">AT&T Park</span><br /><span class="overBlue">
+                                        24 Willie Mays Plaza<br />San Francisco, CA
+                                        <a href="javascript: void(0)" class="overBlue">94107</a>
+                                    </span><br />(415) 972-2000<br />
+                                </p>
+                                <a href="http://m.giants.mlb.com">sfgiants.com</a>
+                            </li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        {% endblock %}

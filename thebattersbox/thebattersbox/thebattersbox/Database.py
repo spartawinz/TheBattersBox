@@ -137,10 +137,10 @@ class Fielding(db.Model):
     id = db.Column(db.Integer,primary_key=True,autoincrement=True)
     player_id = db.Column(db.Integer,db.ForeignKey('players.id'),nullable=False)
     put_outs = db.Column(db.Integer)
-    error = db.Column(db.Integer)
+    ers = db.Column(db.Integer)
     #function definitions
-    def __init__(self,put_outs,error):
-        self.error = error
+    def __init__(self,put_outs,ers):
+        self.ers = ers
         self.put_outs = put_outs
     def __repr__(self):
         return '<Fielding %r>' % self.id
@@ -169,5 +169,3 @@ class Coaches(db.Model):
         return '<Coaches %r>' % self.name
     def __init__(self,name):
         self.name = name
-
-
