@@ -205,6 +205,9 @@ table.americanDivision2{
             p.tableNames{
                 font-size: 18px;
             }
+            tr.teamPlayerRow{
+
+            }
 
 
 
@@ -243,7 +246,7 @@ table.americanDivision2{
                 width: 65px;
                 font-size: 17px;
             }
-            input.playerCompareCheckbox{
+            input.playerCompareButton{
                 display:inline-block;
                 right: 300px;
             }
@@ -313,39 +316,133 @@ table.americanDivision2{
         $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 
             $(document).ready(function () {
+                displayComparePlayers();
+
                 $(".nationalDivision1data").click(function(){
-                    $.post($SCRIPT_ROOT + '/team', {
+                    $.getJSON($SCRIPT_ROOT + '/team', {
                         a: $(this).attr('id')
                         });
                 });
-                $(".homeButton").click(function(){
+                $(".nationalDivision2data").click(function(){
+                    $.getJSON($SCRIPT_ROOT + '/team', {
+                        a: $(this).attr('id')
+                        });
+                });
+                 $(".americanDivision1data").click(function(){
+                    $.getJSON($SCRIPT_ROOT + '/team', {
+                        a: $(this).attr('id')
+                        });
+                });
+                $(".americanDivision2data").click(function(){
+                    $.getJSON($SCRIPT_ROOT + '/team', {
+                        a: $(this).attr('id')
+                        });
+                });
+
+
+
+
+                 $(".teamPlayerRow").click(function(){
+                    $.getJSON($SCRIPT_ROOT + '/player', {
+                        a: $(this).attr('id')
+                        });
+                 });
+                 $(".teamPitcherRow").click(function(){
+                    $.getJSON($SCRIPT_ROOT + '/player', {
+                        a: $(this).attr('id')
+                        });
+                 });
+
+
+                $("#homeButton").click(function(){
                     $.getJSON($SCRIPT_ROOT + '/home', {
 
                         });
                 });
                 $("#compareButton").click(function(){
                     $.getJSON($SCRIPT_ROOT + '/compare', {
-
+                        a: localStorage.getItem('comparePlayersSaved')
                         });
                 });
+                $("#deselectPlayer1").click(function(){
+                    deleteFromComparePlayers(0);
+                });
+                $("#deselectPlayer2").click(function(){
+                    deleteFromComparePlayers(1);
+                });
+                $("#deselectPlayer3").click(function(){
+                    deleteFromComparePlayers(2);
+                });
+
+
+
+//adds the player's id and name to the browsers local storage so we have the info to compare
+                $("#playerCompareButton").click(function(){
+                    var comparePlayersSaved = JSON.parse(localStorage.getItem('comparePlayersSaved')); //getting values from local storage
+                    var playerObject = {"playerID" : $('#playerName').attr('id'), "PlayerName": $("#playerName").text()};
+
+                    if (comparePlayersSaved != null && comparePlayersSaved.length < 3){
+                        comparePlayersSaved.push(playerObject);
+                    }
+                    else if (comparePlayersSaved == null){
+                        comparePlayersSaved = [playerObject];
+                    }
+                    localStorage.setItem('comparePlayersSaved', JSON.stringify(comparePlayersSaved)); //overwritting local storage with new values
+                    displayComparePlayers();
+                });
+
+
+//displays the names of the players to be compared in the top right
+                function displayComparePlayers(){
+                    var comparePlayersSaved = JSON.parse(localStorage.getItem('comparePlayersSaved')); //getting local storage
+                    if(comparePlayersSaved != null){
+
+                        if(comparePlayersSaved.length >= 1){
+                            $("#compareBoxPlayer1Name").text(comparePlayersSaved[0].PlayerName);
+                        }
+                        else{
+                            $("#compareBoxPlayer1Name").text("");
+                        }
+                        if(comparePlayersSaved.length >= 2){
+                            $("#compareBoxPlayer2Name").text(comparePlayersSaved[1].PlayerName);
+                        }
+                        else{
+                            $("#compareBoxPlayer2Name").text("");
+                        }
+                        if(comparePlayersSaved.length >= 3){
+                            $("#compareBoxPlayer3Name").text(comparePlayersSaved[2].PlayerName);
+                        }
+                        else{
+                            $("#compareBoxPlayer3Name").text("");
+                        }
+                    }
+                }
+
+
+//deletes the player from local browser storage so that the player wont be compared
+                function deleteFromComparePlayers(index){
+                    var comparePlayersSaved = JSON.parse(localStorage.getItem('comparePlayersSaved'));
+                    comparePlayersSaved.splice(index,1);
+                    localStorage.setItem('comparePlayersSaved', JSON.stringify(comparePlayersSaved));
+                    displayComparePlayers();
+                }
             });
 
         </script>
 
     </head>
     <body>
-        
+
         <div class="navBarDiv" id="navBarDiv"> 
             <input type="button" value= "Home" class="homeButton" id="homeButton"> 
             <input type="button" value="Compare" class="compareButton" id="compareButton">
             <div class="compareBoxDiv" id="compareBoxDiv">
                 <input type="button" value="X" class="deselectPlayer1" id="deselectPlayer1">
-                <p class="compareBoxPlayer1Name" id="compareBoxPlayer1Name">Player 1</p>
+                <p class="compareBoxPlayer1Name" id="compareBoxPlayer1Name"></p>
                 <input type="button" value="X" class="deselectPlayer2" id="deselectPlayer2">
-                <p class="compareBoxPlayer2Name" id="compareBoxPlayer2Name">Player 2</p>
+                <p class="compareBoxPlayer2Name" id="compareBoxPlayer2Name"></p>
                 <input type="button" value="X" class="deselectPlayer3" id="deselectPlayer3">
-               
-                <p class="compareBoxPlayer3Name" id="compareBoxPlayer3Name">Player 3</p>
+                <p class="compareBoxPlayer3Name" id="compareBoxPlayer3Name"></p>
             </div>
         </div>
         <div class="mainDiv" id="mainDiv">

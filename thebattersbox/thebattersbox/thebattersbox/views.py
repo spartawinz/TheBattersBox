@@ -32,8 +32,8 @@ def team():
         'team.html'
     )
 
-@app.route('/player')
-def player():
+@app.route('/player1')
+def player1():
     """Renders the player page."""
 
     Player_Name = "fdsaf"
@@ -53,9 +53,13 @@ def player():
     Player_Earned_Runs = "mpl"
     Player_Innings_Pitched = "mpm"
 
-    return render_template('player.html.html')
+    return render_template('player1.html')
 
 @app.route('/compare')
 def compare():
+
+    a = request.args.get('a', 0, type=str)
+    print(a)
+
     return render_template('compare.html')
 
