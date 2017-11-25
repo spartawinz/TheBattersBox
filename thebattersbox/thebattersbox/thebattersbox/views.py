@@ -5,6 +5,8 @@ Routes and views for the flask application.
 from datetime import datetime
 from flask import render_template
 from thebattersbox import app
+from thebattersbox.Database import *
+
 
 @app.route('/')
 @app.route('/home')
@@ -45,7 +47,7 @@ def about():
         message='Your application description page.'
     )
 
-@app.route('/team/<Team_ID>')
+@app.route('/team')
 def team():
     """Renders the team page."""
     Team_ID = 2
@@ -56,7 +58,7 @@ def team():
                         Position).join(
                             Fielding).add_columns(
                                 Player.name, Position.name, Batting.hits, Batting.at_bat, Batting.runs,
-                                Batting.home_runs, Batting.walks, Fielding.ers, Fielding.put_outs).all()
+                                Batting.home_runs, Batting.walks, Fielding.ers, Fielding.put_outs).order_by(Player.position_id).order_by(Player.name).all()
 
     pitchers = Player.query.filter_by(
         team_id = Team_ID).filter_by(
@@ -64,28 +66,47 @@ def team():
                         Position).join(
                             Fielding).join(
                                 Pitching).add_columns(
-                                    Player.name, Position.name,  Pitching.wins, Pitching.losses, Pitching.era, Pitching.games_pitched, Pitching.earned_runs, Pitching.innings_pitched, Pitching.strike_outs, Fielding.ers, Fielding.put_outs).all()
+                                    Player.name, Position.name, Pitching.wins, Pitching.losses, 
+                                    Pitching.era, Pitching.games_pitched, Pitching.earned_runs, 
+                                    Pitching.innings_pitched, Pitching.strike_outs, Fielding.ers, Fielding.put_outs).order_by(
+                                        Player.name).all()
 
     coaches = Coaches.query.filter_by(
         team_id = Team_ID).join(
             CoachType).add_columns(
-                Coaches.name, CoachType.type).all()
+                Coaches.name, CoachType.type).order_by(CoachType.id).all()
 
 
    
     return render_template(
-        'team.html',
-        title='Royals',
-        team_players = position_players,
-        team_pitchers = pitchers,
-        team_coaches = coaches
+        'team1.html',
+        title='Team View',
+        position_players = position_players,
+        pitchers = pitchers,
+        coaches = coaches
     )
 
-@app.route('/player/<Player_ID>')
+
+@app.route('/player')
 def player():
     """Renders the player page."""
-   
-    player = Player.query.filter_by(
+    Player_ID = 2
+    player = Player.query.filter_by(id = 2).join(Position).join(Batting).join(
+                            Fielding).join(
+                                Pitching).join(
+                                    Team).add_columns(Player.name, Position.name, Batting.hits, Batting.at_bat, Batting.runs,
+                                                      Batting.home_runs, Batting.walks, Fielding.ers, Fielding.put_outs,
+                                                      Pitching.wins, Pitching.losses, Pitching.era, Pitching.games_pitched, 
+                                                      Pitching.earned_runs, Pitching.innings_pitched).all() 
+
+    return render_template('player.html',
+                           player = player)
+
+@app.route('/compare')
+def compare():
+    """Renders the home page."""
+
+    players = Player.query.filter_by(
         id=2).join(
                 Batting).join(
                         Position).join(
@@ -95,25 +116,31 @@ def player():
                                                       Batting.home_runs, Batting.walks, Fielding.ers, Fielding.put_outs,
                                                       Pitching.wins, Pitching.losses, Pitching.era, Pitching.games_pitched, 
                                                       Pitching.earned_runs, Pitching.innings_pitched).all()
-        
-    Player_Name = player.Player_Name
-    Team_Name = player.Team_Name
-    Position = player.Position_Name
-    Player_Hits = player.Hits
-    Player_At_Bats = player.At_Bats
-    Player_Runs = player.Runs
-    Player_HRs = player.Hrs
-    Player_Walks = player.Walks
-    Player_Put_Outs = player.Put_Outs
-    Player_Errors = player.Errors
-    Player_Wins = player.Wins
-    Player_Loses = player.loses
-    Player_ERA = player.ERA
-    Player_Games_Pitched = player.Games_Pitched
-    Player_Earned_Runs = player.Earned_Runs
-    Player_Innings_Pitched = player.Innings_Pitched
-        
+
+    player2 = Player.query.filter_by(
+        id=3).join(
+                Batting).join(
+                        Position).join(
+                            Fielding).join(
+                                Pitching).join(
+                                    Team).add_columns(Player.name, Position.name, Batting.hits, Batting.at_bat, Batting.runs,
+                                                      Batting.home_runs, Batting.walks, Fielding.ers, Fielding.put_outs,
+                                                      Pitching.wins, Pitching.losses, Pitching.era, Pitching.games_pitched, 
+                                                      Pitching.earned_runs, Pitching.innings_pitched).all()
+
+    player3 = Player.query.filter_by(
+        id=4).join(
+                Batting).join(
+                        Position).join(
+                            Fielding).join(
+                                Pitching).join(
+                                    Team).add_columns(Player.name, Position.name, Batting.hits, Batting.at_bat, Batting.runs,
+                                                      Batting.home_runs, Batting.walks, Fielding.ers, Fielding.put_outs,
+                                                      Pitching.wins, Pitching.losses, Pitching.era, Pitching.games_pitched, 
+                                                      Pitching.earned_runs, Pitching.innings_pitched).all()
 
 
-    return render_template('player.html',
-                           player = players)
+    return render_template(
+        'compare.html'
+
+    )

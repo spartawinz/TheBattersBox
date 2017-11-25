@@ -6,9 +6,32 @@ from thebattersbox import app
 
 #make sure you change the username(admin) and password(Group2017) before you run db.createall() as this will not connect to your database
 #When running in python interactive make sure you do from battersbox.Database import db before you run db.create_all() or it will not know whats going on
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://admin:Group2017@localhost/thebattersbox'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:0000@localhost/thebattersbox'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 db = SQLAlchemy(app)
+
+class Player(db.Model):
+    __tablename__ = 'players'
+    id = db.Column(db.Integer,primary_key = True,autoincrement = True)
+    name = db.Column(db.String(80))
+    home_town = db.Column(db.String(80))
+    player_number = db.Column(db.Integer)
+    position_id = db.Column(db.Integer, db.ForeignKey('positions.id'), nullable=False)
+    team_id = db.Column(db.Integer, db.ForeignKey('teams.id'),nullable = False)
+    salaries_id = db.Column(db.Integer,db.ForeignKey('salaries.id'))
+    #relationships
+    db.relationship('PlayerStats', backref='player')
+    db.relationship('Pitching',backref='player')
+    db.relationship('Coaches',backref='player')
+    db.relationship('Fielding',backref='player')
+    db.relationship('Position',backref='player')
+    #function definitions
+    def __repr__(self):
+        return '<Player %r>' % self.name
+    def __init__(self,name,home_town,player_number):
+        self.name = name
+        self.home_town = home_town
+        self.player_number = player_number
 
 class Salary(db.Model):
     __tablename__='salaries'
@@ -63,27 +86,7 @@ class Position(db.Model):
     def __repr__(self):
         return '<Position %r>' % self.name
 
-class Player(db.Model):
-    __tablename__ = 'players'
-    id = db.Column(db.Integer,primary_key = True,autoincrement = True)
-    name = db.Column(db.String(80))
-    home_town = db.Column(db.String(80))
-    player_number = db.Column(db.Integer)
-    position_id = db.Column(db.Integer, db.ForeignKey('positions.id'), nullable=False)
-    team_id = db.Column(db.Integer, db.ForeignKey('teams.id'),nullable = False)
-    salaries_id = db.Column(db.Integer,db.ForeignKey('salaries.id'))
-    #relationships
-    db.relationship('PlayerStats', backref='player')
-    db.relationship('Pitching',backref='player')
-    db.relationship('Coaches',backref='player')
-    db.relationship('Fielding',backref='player')
-    #function definitions
-    def __repr__(self):
-        return '<Player %r>' % self.name
-    def __init__(self,name,home_town,player_number):
-        self.name = name
-        self.home_town = home_town
-        self.player_number = player_number
+
     
 
 class Batting(db.Model):

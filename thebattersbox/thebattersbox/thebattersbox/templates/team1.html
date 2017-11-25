@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Player</title>
+</head>
+<body>
+    <div class=page>
+        <h1>Position Players</h1>
+        <table>
+            {% for player in position_players %}
+            <tr>
+                {% for stat in player %}
+                <td>
+                    {{ stat }}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+        <h1>Pitchers</h1>
+        <table>
+            {% for pitcher in pitchers %}
+            <tr>
+                {% for stat in pitcher %}
+                <td>
+                    {{ stat }}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h1>Coaches</h1>
+        <table>
+            {% for coach in coaches %}
+            <tr>
+                {% for stat in coach %}
+                <td>
+                    {{ stat }}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
