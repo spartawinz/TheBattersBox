@@ -1,22 +1,9 @@
 ﻿<!doctype html>
-<html>
-<head><title>Player</title></head>
-    <body>
-            <div class=page>
-                <h1>Players</h1>
-                    <table>
-                        <tr>
-                            
-                            {% for stat in player %}
-                            {% if stat.index != 0 %}
-                                <td>
-                                    
-                                    {{ stat }}
-                                </td>
-                            {% endif %}
-                            {% endfor %}
-                        </tr>
-                    </table>
-            </div>
-    </body>
-</html>
+<title>Player</title>
+<div class=page>
+    <h1>Players</h1>
+    {% for stat in players %}
+    <h2>{{titles[loop.index]}}</h2>
+    {{ stat|safe }}
+    {% endfor %}
+</div>
