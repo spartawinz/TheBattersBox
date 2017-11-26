@@ -6,7 +6,7 @@ from thebattersbox import app
 
 #make sure you change the username(admin) and password(Group2017) before you run db.createall() as this will not connect to your database
 #When running in python interactive make sure you do from battersbox.Database import db before you run db.create_all() or it will not know whats going on
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:0000@localhost/thebattersbox'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://admin:Group2017@localhost/thebattersbox'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 db = SQLAlchemy(app)
 

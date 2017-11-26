@@ -840,13 +840,13 @@ IGNORE 1 Rows
 (player_id, wins, losses, games_pitched, innings_pitched, earned_runs, era, strike_outs);
 
 #set this to the filepath for fielding
-LOAD DATA INFILE '/home/travis/Documents/GitHub/TheBattersBox/RawData/fielding.csv'
+LOAD DATA LOCAL INFILE '/home/travis/Documents/GitHub/TheBattersBox/RawData/fielding.csv'
 INTO TABLE fielding_stats
 character set utf8
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 Rows
-(player_id, put_outs, error);
+(player_id, put_outs, ers);
 
 SHOW VARIABLES LIKE "secure_file_priv";
 
@@ -867,7 +867,7 @@ Select *
 From players;
 
 select *
-From batting_stats;
+From batting;
 
 select *
 From pitching_stats;
