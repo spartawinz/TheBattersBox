@@ -96,7 +96,55 @@ INSERT INTO positions (name)
 VALUES ('DH');
 
 INSERT INTO salaries (salary_amount)
+VALUES (500000);
+INSERT INTO salaries (salary_amount)
+VALUES (600000);
+INSERT INTO salaries (salary_amount)
+VALUES (700000);
+INSERT INTO salaries (salary_amount)
+VALUES (800000);
+INSERT INTO salaries (salary_amount)
+VALUES (900000);
+INSERT INTO salaries (salary_amount)
 VALUES (1000000);
+INSERT INTO salaries (salary_amount)
+VALUES (2000000);
+INSERT INTO salaries (salary_amount)
+VALUES (3000000);
+INSERT INTO salaries (salary_amount)
+VALUES (4000000);
+INSERT INTO salaries (salary_amount)
+VALUES (5000000);
+INSERT INTO salaries (salary_amount)
+VALUES (6000000);
+INSERT INTO salaries (salary_amount)
+VALUES (7000000);
+INSERT INTO salaries (salary_amount)
+VALUES (8000000);
+INSERT INTO salaries (salary_amount)
+VALUES (9000000);
+INSERT INTO salaries (salary_amount)
+VALUES (10000000);
+INSERT INTO salaries (salary_amount)
+VALUES (11000000);
+INSERT INTO salaries (salary_amount)
+VALUES (12000000);
+INSERT INTO salaries (salary_amount)
+VALUES (13000000);
+INSERT INTO salaries (salary_amount)
+VALUES (14000000);
+INSERT INTO salaries (salary_amount)
+VALUES (15000000);
+INSERT INTO salaries (salary_amount)
+VALUES (16000000);
+INSERT INTO salaries (salary_amount)
+VALUES (17000000);
+INSERT INTO salaries (salary_amount)
+VALUES (18000000);
+INSERT INTO salaries (salary_amount)
+VALUES (19000000);
+INSERT INTO salaries (salary_amount)
+VALUES (20000000);
 
 INSERT INTO coach_type (type)
 VALUES ('Head Coach');
@@ -849,49 +897,3 @@ IGNORE 1 Rows
 (player_id, put_outs, ers);
 
 SHOW VARIABLES LIKE "secure_file_priv";
-
-SELECT teams.name,divisions.name
-FROM divisions, teams
-Where divisions.id = teams.division_id;
-
-SELECT * FROM thebattersbox.divisions;
-
-SELECT * FROM thebattersbox.positions;
-
-SELECT * FROM thebattersbox.salaries;
-
-Select *
-From coach_type;
-
-Select *
-From players;
-
-select *
-From batting;
-
-select *
-From pitching_stats;
-
-Select *
-From coaches;
-
-Select *
-From teams;
-
-Select teams.name, divisions.name
-From teams, divisions
-Where teams.division_id=divisions.id;
-
-Select coaches.name, coach_type.name, teams.name
-From coaches, coach_type, teams
-Where teams.id=Coaches.team_id AND coach_type.id=coaches.coach_type_id
-Order BY teams.name;
-
-Select teams.name, players.name, home_runs, batting_average
-From players, batting, teams
-Where players.team_id=teams.id AND players.id=batting.player_id AND home_runs>20
-Order BY home_runs;
-
-Select teams.name, players.name, innings_pitched, era
-from players, pitching_stats, teams
-where players.team_id=teams.id AND players.id=pitching_stats.player_id
