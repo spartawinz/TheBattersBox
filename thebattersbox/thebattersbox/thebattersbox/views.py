@@ -378,7 +378,7 @@ def stat(stat):
         stat_leaders[i] = stat_leaders[i][1:] #remove first object from list
 
     return render_template('stat.html',
-                           title = "Stat -" + stat,
+                           title = "Stat -" + Stat,
                            stat_leaders = stat_leaders,
                            Stat = Stat
                            )
