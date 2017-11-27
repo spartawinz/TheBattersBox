@@ -6,16 +6,332 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>{{title}}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
 
-            <link rel = "stylesheet"
-                type = "text/css"
-                href = "templates/Stylesheet1.css">
-            
-       
+
+
+        <link rel="stylesheet" type="text/css" href="templates/style.css">
+        <style>
+
+body{
+    margin: 0px;
+}
+div.navBarDiv{
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 50px;
+    background-color: darkgrey;
+    border: solid 1px black;
+}
+div.mainDiv{
+    position: absolute;
+    left: 10%;
+    top:100px;
+    width: 80%;
+    height: 80%;
+}
+input.homeButton{
+    position: absolute;
+    left: 145px;
+    top: 4px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    background-color: white;
+}
+input.compareButton{
+    position: absolute;
+    left: 400px;
+    border: none;
+    top: 4px;
+    width: 100px;
+    height: 40px;
+    background-color: white;
+}
+div.compareBoxDiv{
+    position: absolute;
+    left: 520px;
+    border: solid 1px black;
+    top: 4px;
+    width: 800px;
+    height: 40px;
+    background-color: white;
+}
+p.compareBoxPlayer1Name{
+    position: absolute;
+    left: 35px;
+    display: inline-block;
+    margin: 10px;
+}
+p.compareBoxPlayer2Name{
+    position: absolute;
+    left: 300px;
+    display: inline-block;
+    margin: 10px;
+}
+p.compareBoxPlayer3Name{
+    position: absolute;
+    left: 600px;
+    display: inline-block;
+    margin: 10px;
+}
+input.deselectPlayer1{
+    position: absolute;
+    margin: 10px;
+}
+input.deselectPlayer2{
+    position: absolute;
+    margin: 10px;
+    left:265px;
+}
+ input.deselectPlayer3{
+    position: absolute;
+    margin: 10px;
+    left: 565px;
+}
+
+
+
+
+
+
+div.nationalDivisionsDiv{
+    text-align: center;
+    position: absolute;
+    width: 50%;
+
+}
+div.americanDivisionsDiv{
+    text-align: center;
+    position: absolute;
+    width: 50%;
+    left: 50%;
+
+}
+p.national{
+    font-weight: bold;
+    font-size: 40px;
+}
+p.american{
+    font-weight: bold;
+    font-size: 40px;
+}
+table.nationalDivision1{
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+
+}
+table.nationalDivision2{
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+
+}
+table.americanDivision1{
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+
+}
+table.americanDivision2{
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+
+}
+
+
+
+
+
+            div.teamDataDiv{
+                position: relative;
+                left: 20%;
+                height: 80%;
+                width: 850px;
+                border: solid 1px lightgray;
+            }
+            img.teamImg{
+                left: 10px;
+                top: 10px;
+                height: 76px;
+                width: 76px;
+            }
+            div.teamNameDiv{
+                position: absolute;
+                height: 200px;
+                width: 625px;
+                top: 10px;
+                right: 0px;
+                text-align: center;
+            }
+            p.teamName{
+                margin: 20px 100px 20px 10px;
+                font-size: 50px;
+                font-weight: bold;
+            }
+            div.teamStatsDiv{
+                margin: 20px 20px 20px 20px;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 15px;
+            }
+            table{
+                margin: 10px;
+            }
+            th{
+                border: 3px solid black;
+            }
+            table.playerTable{
+            }
+            th.playerTableth{
+            }
+            table.pitcherTable{
+            }
+            th.pitchersTableth{
+            }
+            table.coachesTable{
+            }
+            th.coachesTableth{
+            }
+            p.tableNames{
+                font-size: 18px;
+            }
+
+
+
+
+
+
+              div.playerDataDiv{
+                position: relative;
+                left: 20%;
+                height: 400px;
+                width: 850px;
+                border: solid 1px lightgray;
+            }
+            img.playerTeamImg{
+                left: 10px;
+                top: 10px;
+                height: 150px;
+                width: 150px;
+            }
+            div.playerNameDiv{
+                position: absolute;
+                height: 200px;
+                width: 625px;
+                top: 10px;
+                right: 0px;
+                text-align: center;
+            }
+            p.playerName{
+                margin: 20px 100px 20px 10px;
+                font-size: 70px;
+                font-weight: bold;
+            }
+            p.playerCompareLabel{
+                display:inline-block;
+                margin: 5px 5px 5px 5px;
+                width: 65px;
+                font-size: 17px;
+            }
+            input.playerCompareCheckbox{
+                display:inline-block;
+                right: 300px;
+            }
+            div.playerStatsDiv{
+                margin: 20px 20px 20px 20px;
+            }
+            p.playerBattingLabel{
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+            p.playerFieldingLabel{
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+            ul.playerStatsList{
+                display:inline;
+                border: solid 1px lightgray;
+                padding: 5px;
+                margin-left: 15px;
+            }
+            li{
+                display: inline;
+            }
+            li.playerStatsListsHeadings{
+                font-weight: bold;
+                margin-right: 5px;
+            }
+            li.playerStatsListsStats{
+                margin-right: 10px;
+            }
+            p.playerPitchingLabel{
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            p.tableNames{
+                font-size: 18px;
+            }
+
+
+
+            div.compareContainerDiv{
+                position: relative;
+                border: solid 1px black;
+                width: 1150px;
+                height: 300px;
+                text-align: center;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 15px;
+            }
+            table.compareTable{
+                position: absolute;
+            }
+            p.comparingPlayers{
+                font-weight: bold;
+                font-size: 20px;
+            }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+            $(document).ready(function () {
+                $(".nationalDivision1data").click(function(){
+                    $.post($SCRIPT_ROOT + '/team', {
+                        a: $(this).attr('id')
+                        });
+                });
+                $(".homeButton").click(function(){
+                    $.getJSON($SCRIPT_ROOT + '/home', {
+
+                        });
+                });
+                $("#compareButton").click(function(){
+                    $.getJSON($SCRIPT_ROOT + '/compare', {
+
+                        });
+                });
+            });
+
+        </script>
+
     </head>
     <body>
         
@@ -37,3 +353,4 @@ and open the template in the editor.
         </div>
     </body>
 </html>
+

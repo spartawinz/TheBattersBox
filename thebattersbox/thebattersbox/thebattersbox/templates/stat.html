@@ -1,0 +1,112 @@
+﻿
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>Stat Leader</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div.teamDataDiv {
+            position: relative;
+            height: 80%;
+            width: 850px;
+            border: solid 1px lightgray;
+        }
+
+        img.teamImg {
+            left: 10px;
+            top: 10px;
+            height: 76px;
+            width: 76px;
+        }
+
+        div.teamNameDiv {
+            position: absolute;
+            height: 200px;
+            width: 625px;
+            top: 10px;
+            right: 0px;
+            text-align: center;
+        }
+
+        p.teamName {
+            margin: 20px 100px 20px 10px;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        div.teamStatsDiv {
+            margin: 20px 20px 20px 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 15px;
+        }
+
+        table {
+            margin: 10px;
+        }
+
+        th {
+            border: 3px solid black;
+        }
+
+        table.playerTable {
+        }
+
+        th.playerTableth {
+        }
+
+        table.pitcherTable {
+        }
+
+        th.pitchersTableth {
+        }
+
+        table.coachesTable {
+        }
+
+        th.coachesTableth {
+        }
+
+        p.tableNames {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="teamDataDiv" id="teamDataDiv">
+        <div class="statLeaderDiv" id="statLeaderDiv">
+            <p class="tableNames"> Stat Leader - {{Stat}}</p>
+            <table class="statTable" id="statLeaderTable">
+                <tr>
+                    <th class="statLeaderTable">Name</th>
+                    <th class="statLeaderTable">Team</th>
+                    <th class="statLeaderTable">Position</th>
+                    <th class="statLeaderTable">Avg</th>
+                    <th class="statLeaderTable">At Bat</th>
+                    <th class="statLeaderTable">Hits</th>
+                    <th class="statLeaderTable">Runs</th>
+                    <th class="statLeaderTable">HR</th>
+                    <th class="statLeaderTable">Walks</th>
+                    <th class="statLeaderTable">PO</th>
+                    <th class="statLeaderTable">Error</th>
+                </tr>
+                {% for player in stat_leaders %}
+                <tr>
+                    {% for stat in player %}
+                    <td>{{ stat }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>

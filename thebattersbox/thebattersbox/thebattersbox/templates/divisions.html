@@ -8,33 +8,60 @@ and open the template in the editor.
 
         {% block content %}
             <div class="nationalDivisionsDiv">
-                <p class="national" >National</p>
-                <p>Division1 </p>
-                <table class="nationalDivision1">
-                    <tr>
-                        <td class="nationalDivision1data" id="nationalDivision1data">team name</td>
-                    </tr>
-                </table>
-                <p>Division2</p>
-                 <table class="nationalDivision2">
-                    <tr>
-                        <td class="nationalDivision2data" id="nationalDivision2data">team name</td>
-                    </tr>
-                </table>               
-            </div>
-            <div class="americanDivisionsDiv">
-                <p class="american">American</p>
-               <p>Division1 </p>
-                <table class="americanDivision1">
-                    <tr>
-                        <td class="americanDivision1data" id="americanDivision1data">team name</td>
-                    </tr>
-                </table>
-                <p>Division2</p>
-                 <table class="americanDivision2">
-                    <tr>
-                        <td class="americanDivision2data" id="americanDivision2data">team name</td>
-                    </tr>
-                </table>  
-            </div>
+    <p class="national">National League</p>
+    <p>Nation League East </p>
+    <table class="nationalDivision1">
+        {% for team in nle %}
+        <tr>
+            <td class="nationalDivision1data" id="nationalDivision1data">
+                {{team}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>National League West</p>
+    <table class="nationalDivision2">
+        {% for team in nlw %}
+        <tr>
+            <td class="nationalDivision2data" id="nationalDivision2data">{{team}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>National League Central</p>
+    <table class="nationalDivision2">
+        {% for team in nlc %}
+        <tr>
+            <td class="nationalDivision3data" id="nationalDivision3data">{{team}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="americanDivisionsDiv">
+    <p class="american">American League</p>
+    <p>American League East </p>
+    <table class="americanDivision1">
+        {% for team in ale %}
+        <tr>
+            <td class="americanDivision1data" id="americanDivision1data">{{team}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>American League West</p>
+    <table class="americanDivision2">
+        {% for team in alw %}
+        <tr>
+            <td class="americanDivision2data" id="americanDivision2data">{{team}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <p>American League Central</p>
+    <table class="americanDivision3">
+        {% for team in alc %}
+        <tr>
+            <td class="americanDivision3data" id="americanDivision3data">{{team}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

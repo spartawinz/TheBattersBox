@@ -4,35 +4,9 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            div.compareContainerDiv{
-                position: relative;
-                border: solid 1px black; 
-                width: 1150px;
-                height: 300px;
-                text-align: center;
-            }
-            table, th, td {
-                border: 1px solid black;
-                border-collapse: collapse;
-                padding: 15px;
-            }
-            table.compareTable{
-                position: absolute;
-            }
-            p.comparingPlayers{
-                font-weight: bold;
-                font-size: 20px;
-            }
-            
-        </style>
-    </head>
-    <body>
+{% extends "index1.html" %}
+
+        {% block content %}
         <div class="compareContainerDiv" id="compareContainerDiv">
             <p class="comparingPlayers" id="comparingPlayers">Comparing Players</p>
             <table class="compareTable" id="compareTable">
@@ -55,61 +29,21 @@ and open the template in the editor.
                         <th class="compareTableH">Earned Runs</th>
                 </tr>
                 <tr>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
+                    {% for stat1 in player1 %}
+                    <td> {{stat1}} </td>
+                    {% endfor %}
                 </tr>
                  <tr>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
+                    {% for stat2 in player2 %}
+                     <td> {{stat2}} </td>
+                     {% endfor %}
                 </tr>
                 <tr>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
-                    <td> fdsaf</td>
+                    {% for stat3 in player3 %}
+                    <td> {{stat3}}</td>
+                    {% endfor %}
                 </tr>                
             </table>
             
         </div>
-    </body>
-</html>
+{% endblock %}
