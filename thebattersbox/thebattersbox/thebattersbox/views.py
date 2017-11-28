@@ -19,44 +19,31 @@ def home():
     ale = Team.query.filter_by(division_id = 1).add_columns(Team.name, Team.id).all()
     alw = Team.query.filter_by(division_id = 3).add_columns(Team.name, Team.id).all()
     alc = Team.query.filter_by(division_id = 2).add_columns(Team.name, Team.id).all()
-    nle_id = []
-    nlw_id = []
-    nlc_id = []
-    ale_id = []
-    alw_id = []
-    alc_id = []
-
 
     #format SQLalchemy object
     for i in range (0,5):
-        nle_id.append(nle[i][2]), #pull id of each team for linking
-        nle[i] = str(nle[i][1]), #remove first redundant object from list
-        nlw_id.append(nlw[i][2]),
-        nlw[i] = str(nlw[i][1]),
-        nlc_id.append(nlc[i][2]),
+        nle_id = nle[2], #pull id of each division for linking
+        nle[i] = nle[i][1], #remove first redundant object from list
+        nlw_id = nle[2],
+        nlw[i] = nlw[i][1],
+        nlc_id = nlc[2],
         nlc[i] = nlc[i][1],
-        ale_id.append(ale[i][2]),
+        ale_id = alc[2]
         ale[i] = ale[i][1],
-        alw_id.append(alw[i][2]),
+        alw_id = alw[2],
         alw[i] = alw[i][1],
-        alc_id.append(alc[i][2]),
+        alc_id = alc[2],
         alc[i] = alc[i][1]
 
     return render_template(
         'divisions.html',
         title = "HOME",
         nle = nle,
-        nle_id = nle_id,
         nlw = nlw,
-        nlw_id = nlw_id,
         nlc = nlc,
-        nlc_id = nlc_id,
         ale = ale,
-        ale_id = ale_id,
         alw = alw,
-        alw_id = alw_id,
-        alc = alc,
-        alc_id = alc_id
+        alc = alc
     )
 
 #route contains /team/Team_ID for routing to different teams
@@ -73,18 +60,15 @@ def team(Team_ID):
                 Batting).join(
                         Position).join(
                             Fielding).add_columns(
-                                Player.id, Player.name, Position.name, Batting.batting_average, Batting.at_bat, 
-                                Batting.hits, Batting.runs, Batting.home_runs, Batting.walks, Fielding.put_outs, 
-                                Fielding.ers).order_by(
+                                Player.name, Position.name, Batting.batting_average, Batting.at_bat, Batting.hits, Batting.runs,
+                                Batting.home_runs, Batting.walks, Fielding.put_outs, Fielding.ers).order_by(
                                     Player.position_id).order_by(
                                         Player.name).all()
 
     #format SQLalchemy object
     size = len(position_players)
-    position_players_id = []
     for i in range (0,size):
-        position_players_id.append(position_players[i][1]),
-        position_players[i]=position_players[i][2:]
+        position_players[i]=position_players[i][1:]
         
     #query for pitchers (filtered for only pitchers with = 6)
     pitchers = Player.query.filter_by(
@@ -93,28 +77,24 @@ def team(Team_ID):
                         Position).join(
                             Fielding).join(
                                 Pitching).add_columns(
-                                    Player.id, Player.name, Position.name, Pitching.era, Pitching.wins, Pitching.losses, 
+                                    Player.name, Position.name, Pitching.era, Pitching.wins, Pitching.losses, 
                                     Pitching.innings_pitched, Pitching.games_pitched, Pitching.earned_runs,  
                                     Pitching.strike_outs, Fielding.ers, Fielding.put_outs).order_by(
                                         Player.name).all()
     #format SQLalchemy object
     size = len(pitchers)
-    pitchers_id = []
     for i in range (0,size):
-        pitchers_id.append(pitchers[i][1]),
-        pitchers[i]=pitchers[i][2:]
+        pitchers[i]=pitchers[i][1:]
 
     #query for coaches
     coaches = Coaches.query.filter_by(
         team_id = Team_ID).join(
             CoachType).add_columns(
-                Coaches.id, Coaches.name, CoachType.type).order_by(CoachType.id).all()
+                Coaches.name, CoachType.type).order_by(CoachType.id).all()
     #query for coaches
     size = len(coaches)
-    coaches_id = []
     for i in range (0,size):
-        coaches_id.append(coaches[i][1]),
-        coaches[i]=coaches[i][2:]
+        coaches[i]=coaches[i][1:]
 
     #query and format team name
     team_name = Team.query.filter_by(id = Team_ID).add_column(Team.name).all()
@@ -127,11 +107,8 @@ def team(Team_ID):
         'team.html',
         title='Team View',
         position_players = position_players,
-        position_players_id = position_players_id,
         pitchers = pitchers,
-        pitchers_id = pitchers_id,
         coaches = coaches,
-        coaches_id = coaches_id,
         team_name = team_name
     )
 
@@ -156,7 +133,7 @@ def player(Player_ID):
         
         player = str(player) #convert list to string
         player = player.split(",") #split string along at the commas
-        player[10] = player[10][:-2] #remove the trailing ")]"
+        player[9] = player[9][:-2] #remove the trailing ")]"
         player[1] = player[1][2:-1] #remove extra " "" " from players name
         pitcher = False #this block executes if player is NOT a pitcher
 
@@ -197,7 +174,7 @@ def player(Player_ID):
         Player_Innings_Pitched = 0
 
     #render the page with the stats pulled from SQL
-    return render_template('player2.html',
+    return render_template('player.html',
                            title = "Player Page",
                            Player_Name = player[1],
                            Team_Name = player[2],
@@ -345,14 +322,6 @@ def stat(stat):
                     Player.name, Team.name, Position.name, Batting.batting_average, Batting.at_bat, Batting.hits,  
                     Batting.runs,Batting.home_runs, Batting.walks, Fielding.ers, Fielding.put_outs).order_by(desc(
                         Batting.at_bat)).limit(20).all()
-    elif Stat == "avg":
-        #query for at_bats
-        stat_leaders = Player.query.join(Position).join(Batting).join(
-            Fielding).join(
-                Team).add_columns(
-                    Player.name, Team.name, Position.name, Batting.batting_average, Batting.at_bat, Batting.hits,  
-                    Batting.runs,Batting.home_runs, Batting.walks, Fielding.ers, Fielding.put_outs).order_by(desc(
-                        Batting.batting_average)).limit(20).all()
     elif Stat == "runs":
         #query for runs
         stat_leaders = Player.query.join(Position).join(Batting).join(
@@ -409,7 +378,7 @@ def stat(stat):
         stat_leaders[i] = stat_leaders[i][1:] #remove first object from list
 
     return render_template('stat.html',
-                           title = "Stat -" + Stat,
+                           title = "Stat -" + stat,
                            stat_leaders = stat_leaders,
                            Stat = Stat
                            )
