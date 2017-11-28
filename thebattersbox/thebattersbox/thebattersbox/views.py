@@ -174,7 +174,7 @@ def player(Player_ID):
         Player_Innings_Pitched = 0
 
     #render the page with the stats pulled from SQL
-    return render_template('player2.html',
+    return render_template('player.html',
                            title = "Player Page",
                            Player_Name = player[1],
                            Team_Name = player[2],
@@ -378,7 +378,7 @@ def stat(stat):
         stat_leaders[i] = stat_leaders[i][1:] #remove first object from list
 
     return render_template('stat.html',
-                           title = "Stat -" + Stat,
+                           title = "Stat -" + stat,
                            stat_leaders = stat_leaders,
                            Stat = Stat
                            )
