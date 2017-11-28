@@ -62,14 +62,12 @@ and open the template in the editor.
         }
 
         th.playerTableth {
-     
         }
 
         table.pitcherTable {
         }
 
         th.pitchersTableth {
-           
         }
 
         table.coachesTable {
@@ -95,11 +93,7 @@ and open the template in the editor.
                 <tr>
                     <th class="playerTableth">Name</th>
                     <th class="playerTableth">Position</th>
-                    <th class="playerTableht">
-                        <a href={{ url_for('stat', stat = 'avg') }}>
-                            Avg
-                        </a>
-                    </th>
+                    <th class="playerTableht">Avg</th>
                     <th class="playerTableth">At Bat</th>
                     <th class="playerTableth">Hits</th>
                     <th class="playerTableth">Runs</th>
@@ -108,17 +102,10 @@ and open the template in the editor.
                     <th class="playerTableth">PO</th>
                     <th class="playerTableth">Error</th>
                 </tr>
-                {% for i in range(0, position_players|length) %}
+                {% for player in position_players %}
                 <tr>
-                    <td>
-                        <a href={{ url_for('player', Player_ID = position_players_id[i]) }}>
-                            {{position_players[i][0]}}
-                        </a>
-                    </td>
-                    {% for j in range(1,9) %}
-                    <td>
-                        {{ position_players[i][j] }}
-                    </td>
+                    {% for stat in player %}
+                    <td>{{ stat }}</td>
                     {% endfor %}
                 </tr>
                 {% endfor %}
@@ -138,17 +125,10 @@ and open the template in the editor.
                     <th class="pitchersTableth">Put Outs</th>
                     <th class="pitchersTableth">Errors</th>
                 </tr>
-                {% for i in range(0, pitchers|length) %}
+                {% for pitcher in pitchers %}
                 <tr>
-                    <td>
-                        <a href={{ url_for('player', Player_ID = pitchers_id[i]) }}>
-                            {{pitchers[i][0]}}
-                        </a>
-                    </td>
-                    {% for j in range(1,11) %}
-                    <td>
-                        {{ pitchers[i][j] }}
-                    </td>
+                    {% for stat in pitcher %}
+                    <td>{{stat}}</td>
                     {% endfor %}
                 </tr>
                 {% endfor %}

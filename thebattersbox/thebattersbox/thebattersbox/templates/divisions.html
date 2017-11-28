@@ -11,31 +11,27 @@ and open the template in the editor.
     <p class="national">National League</p>
     <p>Nation League East </p>
     <table class="nationalDivision1">
-        {% for i in range(0,5) %}
+        {% for team in nle %}
         <tr>
             <td class="nationalDivision1data" id="nationalDivision1data">
-                <a href={{ url_for('team', Team_ID = nle_id[i]) }}> {{nle[i]}} </a>
+                {{team}}
             </td>
         </tr>
         {% endfor %}
     </table>
     <p>National League West</p>
     <table class="nationalDivision2">
-        {% for i in range(0,5) %}
+        {% for team in nlw %}
         <tr>
-            <td class="nationalDivision2data" id="nationalDivision2data">
-                <a href={{ url_for('team', Team_ID = nlw_id[i]) }}> {{nlw[i]}} </a>
-            </td>
+            <td class="nationalDivision2data" id="nationalDivision2data">{{team}}</td>
         </tr>
         {% endfor %}
     </table>
     <p>National League Central</p>
     <table class="nationalDivision2">
-        {% for i in range(0,5) %}
+        {% for team in nlc %}
         <tr>
-            <td class="nationalDivision3data" id="nationalDivision3data">
-                <a href={{ url_for('team', Team_ID = nlc_id[i]) }}> {{nlc[i]}} </a>
-            </td>
+            <td class="nationalDivision3data" id="nationalDivision3data">{{team}}</td>
         </tr>
         {% endfor %}
     </table>
@@ -44,31 +40,26 @@ and open the template in the editor.
     <p class="american">American League</p>
     <p>American League East </p>
     <table class="americanDivision1">
-        {% for i in range(0,5) %}
+        {% for team in ale %}
         <tr>
-            <td class="americanDivision1data" id="americanDivision1data">
-                <a href={{ url_for('team', Team_ID = ale_id[i]) }}> {{ale[i]}} </a>
-            </td>
+            <td class="americanDivision1data" id="americanDivision1data">{{team}}</td>
         </tr>
         {% endfor %}
     </table>
     <p>American League West</p>
     <table class="americanDivision2">
-        {% for i in range(0,5) %}
+        {% for team in alw %}
         <tr>
-            <td class="americanDivision2data" id="americanDivision2data">
-                <<a href={{ url_for('team', Team_ID = alw_id[i]) }}> {{alw[i]}} </a>
-            </td>
+            <td class="americanDivision2data" id="americanDivision2data">{{team}}</td>
+
         </tr>
         {% endfor %}
     </table>
     <p>American League Central</p>
     <table class="americanDivision3">
-        {% for i in range(0,5) %}
+        {% for team in alc %}
         <tr>
-            <td class="americanDivision3data" id="americanDivision3data">
-                <a href={{ url_for('team', Team_ID = alc_id[i]) }}> {{alc[i]}} </a>
-            </td>
+            <td class="americanDivision3data" id="americanDivision3data">{{team}}</td>
         </tr>
         {% endfor %}
     </table>
